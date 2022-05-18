@@ -99,3 +99,29 @@ GET http://localhost:9000/api/estado_equipos HTTP/1.1
 
 ###
 GET http://localhost:9000/api/estado_equipos/6281cabbd0eff6337e2a12d9 HTTP/1.1
+
+// Pruebas Metodos Inventarios
+###
+POST http://localhost:9000/api/inventarios HTTP/1.1
+Content-Type: application/json
+
+{
+    "serial": "1245B",
+    "model": "XCFK",
+    "descripcion": "Pantalla 24 Pulgadas",
+    "foto": "https://mifoto.com",
+    "precio": 850000,
+    "fehcaCompra": "2021-12-01 00:00:00",
+    "usuario": "628193e46a748703ba07e5d6",
+    "marca": "6281bdc2c4730490cdfc9e4c",
+    "tipo": "6281caebd0eff6337e2a12e1",
+    "estado": "6281cad7d0eff6337e2a12dd",
+    "fecha_creacion": "2022-05-17 20:15:00",
+    "fecha_actualizacion": "2022-05-17 20:15:00"
+}
+
+###
+GET http://localhost:9000/api/inventarios HTTP/1.1
+
+###
+GET http://localhost:9000/api/inventarios/628447c635945e181822eef0 HTTP/1.1
