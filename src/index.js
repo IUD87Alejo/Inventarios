@@ -5,7 +5,7 @@ const userRoutes = require("./routes/usuario");
 const marcaRoutes = require("./routes/marca");
 const tipoEquipoRoutes = require("./routes/tipoEquipo");
 const estadoEquipoRoutes = require("./routes/estadoEquipo");
-
+const inventarioRoutes = require("./routes/inventario");
 
 const app = express();
 const port = process.env.PORT || 9000;
@@ -16,7 +16,7 @@ app.use('/api', userRoutes);
 app.use('/api', marcaRoutes);
 app.use('/api', tipoEquipoRoutes);
 app.use('/api', estadoEquipoRoutes);
-
+app.use('/api', inventarioRoutes);
 
 // routes
 app.get('/', (req, res) => {
@@ -29,4 +29,4 @@ mongoose
     .then(() => console.log('Conexión exitosa a DB MongoDB Atlas'))
     .catch((error) => console.log(error));
 
-app.listen(9000, () => console.log('server listening on port', port));
+app.listen(port, () => console.log('server listening on port', port));
