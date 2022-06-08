@@ -6,9 +6,9 @@ const router = express.Router();
 const path = '/users';
 
 //Create user
-router.post(`${path}/`, (req, res) => {
+router.post(`${path}/`, async(req, res) => {
     const usuario = userSchema(req.body);
-    usuario
+    await usuario
         .save()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
@@ -16,8 +16,8 @@ router.post(`${path}/`, (req, res) => {
 });
 
 //get all user
-router.get(`${path}/`, (req, res) => {
-    userSchema
+router.get(`${path}/`, async(req, res) => {
+    await userSchema
         .find()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
@@ -25,9 +25,9 @@ router.get(`${path}/`, (req, res) => {
 });
 
 //get user by ID
-router.get(`${path}/:id`, (req, res) => {
+router.get(`${path}/:id`, async(req, res) => {
     const { id } = req.params;
-    userSchema
+    await userSchema
         .findById(id)
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
@@ -35,10 +35,10 @@ router.get(`${path}/:id`, (req, res) => {
 });
 
 //update user by ID
-router.put(`${path}/:id`, (req, res) => {
+router.put(`${path}/:id`, async(req, res) => {
     const { id } = req.params;
     const { nombre, email, estado } = req.body;
-    userSchema
+    await userSchema
         .updateOne({ _id: id }, { $set: { nombre, email, estado } })
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
@@ -46,9 +46,9 @@ router.put(`${path}/:id`, (req, res) => {
 });
 
 //delete user by ID
-router.delete(`${path}/:id`, (req, res) => {
+router.delete(`${path}/:id`, async(req, res) => {
     const { id } = req.params;
-    userSchema
+    await userSchema
         .deleteOne({ _id: id })
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));

@@ -6,17 +6,17 @@ const router = express.Router();
 const path = '/marcas';
 
 //Create
-router.post(`${path}/`, (req, res) => {
+router.post(`${path}/`, async(req, res) => {
     const marca = marcaSchema(req.body);
-    marca
+    await marca
         .save()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
 });
 
 //get all
-router.get(`${path}/`, (req, res) => {
-    marcaSchema
+router.get(`${path}/`, async(req, res) => {
+    await marcaSchema
         .find()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
@@ -24,9 +24,9 @@ router.get(`${path}/`, (req, res) => {
 });
 
 //get by ID
-router.get(`${path}/:id`, (req, res) => {
+router.get(`${path}/:id`, async(req, res) => {
     const { id } = req.params;
-    marcaSchema
+    await marcaSchema
         .findById(id)
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
@@ -34,10 +34,10 @@ router.get(`${path}/:id`, (req, res) => {
 });
 
 //update by ID
-router.put(`${path}/:id`, (req, res) => {
+router.put(`${path}/:id`, async(req, res) => {
     const { id } = req.params;
     const { nombre, estado } = req.body;
-    marcaSchema
+    await marcaSchema
         .updateOne({ _id: id }, { $set: { nombre, estado } })
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
@@ -45,9 +45,9 @@ router.put(`${path}/:id`, (req, res) => {
 });
 
 //delete by ID
-router.delete(`${path}/:id`, (req, res) => {
+router.delete(`${path}/:id`, async(req, res) => {
     const { id } = req.params;
-    marcaSchema
+    await marcaSchema
         .deleteOne({ _id: id })
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));

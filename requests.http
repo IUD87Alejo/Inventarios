@@ -15,22 +15,22 @@ Content-Type: application/json
 GET http://localhost:9000/api/users HTTP/1.1
 
 ###
-GET http://localhost:9000/api/users/6281b2203b5116d457f87cef HTTP/1.1
+GET http://localhost:9000/api/users/628193e46a748703ba07e5d6 HTTP/1.1
 
 ###
-PUT http://localhost:9000/api/users/6281b2203b5116d457f87cef HTTP/1.1
+PUT http://localhost:9000/api/users/628193e46a748703ba07e5d6 HTTP/1.1
 Content-Type: application/json
 
 {
-    "nombre": "Pedro",
-    "email": "pedro2@gmail.com",
+    "nombre": "Adrian",
+    "email": "adrian2@gmail.com",
     "estado": "Inactivo",
     "fecha_creacion": "2022-05-15 20:20:00",
     "fecha_actualizacion": "2022-05-15 20:20:00"
 }
 
 ###
-DELETE http://localhost:9000/api/users/6281b2203b5116d457f87cef HTTP/1.1
+DELETE http://localhost:9000/api/users/628193e46a748703ba07e5d6 HTTP/1.1
 
 // Pruebas Metodos Marcas
 ###
@@ -48,7 +48,7 @@ Content-Type: application/json
 GET http://localhost:9000/api/marcas HTTP/1.1
 
 ###
-GET http://localhost:9000/api/marcas/6281bdd4c4730490cdfc9e4e HTTP/1.1
+GET http://localhost:9000/api/marcas/6281bdc2c4730490cdfc9e4c HTTP/1.1
 
 ###
 PUT http://localhost:9000/api/marcas/6281bdd4c4730490cdfc9e4e HTTP/1.1
@@ -112,16 +112,25 @@ Content-Type: application/json
     "foto": "https://mifoto.com",
     "precio": 850000,
     "fehcaCompra": "2021-12-01 00:00:00",
-    "usuario": "628193e46a748703ba07e5d6",
-    "marca": "6281bdc2c4730490cdfc9e4c",
-    "tipo": "6281caebd0eff6337e2a12e1",
-    "estado": "6281cad7d0eff6337e2a12dd",
-    "fecha_creacion": "2022-05-17 20:15:00",
-    "fecha_actualizacion": "2022-05-17 20:15:00"
+    "usuario":{
+        "_id":"628193e46a748703ba07e5d6"
+    },
+    "marca":{
+        "_id": "6281bdc2c4730490cdfc9e4c"
+    },
+    "tipo":{
+        "_id": "6281caebd0eff6337e2a12e1"
+    },
+    "estado":{
+        "_id": "6281cad7d0eff6337e2a12dd"
+    }
 }
 
 ###
 GET http://localhost:9000/api/inventarios HTTP/1.1
 
 ###
-GET http://localhost:9000/api/inventarios/628447c635945e181822eef0 HTTP/1.1
+GET http://localhost:9000/api/inventarios/6286e9340820735e79453580 HTTP/1.1
+
+###
+DELETE http://localhost:9000/api/inventarios/6284493b35945e181822eefc HTTP/1.1

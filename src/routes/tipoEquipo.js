@@ -6,45 +6,45 @@ const router = express.Router();
 const path = '/tipo_equipos';
 
 //Create
-router.post(`${path}/`, (req, res) => {
+router.post(`${path}/`, async(req, res) => {
     const tipoE = tipoEquipoSchema(req.body);
-    tipoE
+    await tipoE
         .save()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
 });
 
 //get all
-router.get(`${path}/`, (req, res) => {
-    tipoEquipoSchema
+router.get(`${path}/`, async(req, res) => {
+    await tipoEquipoSchema
         .find()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
 });
 
 //get by ID
-router.get(`${path}/:id`, (req, res) => {
+router.get(`${path}/:id`, async(req, res) => {
     const { id } = req.params;
-    tipoEquipoSchema
+    await tipoEquipoSchema
         .findById(id)
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
 });
 
 //update by ID
-router.put(`${path}/:id`, (req, res) => {
+router.put(`${path}/:id`, async(req, res) => {
     const { id } = req.params;
     const { nombre, estado } = req.body;
-    tipoEquipoSchema
+    await tipoEquipoSchema
         .updateOne({ _id: id }, { $set: { nombre, estado } })
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
 });
 
 //delete by ID
-router.delete(`${path}/:id`, (req, res) => {
+router.delete(`${path}/:id`, async(req, res) => {
     const { id } = req.params;
-    tipoEquipoSchema
+    await tipoEquipoSchema
         .deleteOne({ _id: id })
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
