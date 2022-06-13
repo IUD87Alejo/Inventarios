@@ -4,8 +4,8 @@ POST http://localhost:9000/api/users HTTP/1.1
 Content-Type: application/json
 
 {
-    "nombre": "Pedro Pablo",
-    "email": "pedro@correo.com",
+    "nombre": "Camilo",
+    "email": "camilo@correo.com",
     "estado": "Activo",
     "fecha_creacion": "2022-05-15 18:31:00",
     "fecha_actualizacion": "2022-05-15 18:31:00"
@@ -38,7 +38,7 @@ POST http://localhost:9000/api/marcas HTTP/1.1
 Content-Type: application/json
 
 {
-    "nombre": "Sony",
+    "nombre": "",
     "estado": "Activo",
     "fecha_creacion": "2022-05-15 20:33:00",
     "fecha_actualizacion": "2022-05-15 20:33:00"
@@ -106,20 +106,20 @@ POST http://localhost:9000/api/inventarios HTTP/1.1
 Content-Type: application/json
 
 {
-    "serial": "1245B",
-    "model": "XCFK",
-    "descripcion": "Pantalla 24 Pulgadas",
-    "foto": "https://mifoto.com",
-    "precio": 850000,
+    "serial": "315478",
+    "model": "PLIJUH",
+    "descripcion": "Pantalla 65 Pulgadas",
+    "foto": "https://http2.mlstatic.com/D_NQ_NP_970038-MCO47494058504_092021-O.webp",
+    "precio": 2050000,
     "fehcaCompra": "2021-12-01 00:00:00",
     "usuario":{
-        "_id":"628193e46a748703ba07e5d6"
+        "_id":"62a2acc4efe1a22084ae809e"
     },
     "marca":{
-        "_id": "6281bdc2c4730490cdfc9e4c"
+        "_id": "629ff0fab79d840f843d5339"
     },
     "tipo":{
-        "_id": "6281caebd0eff6337e2a12e1"
+        "_id": "6284491135945e181822eef8"
     },
     "estado":{
         "_id": "6281cad7d0eff6337e2a12dd"
@@ -134,3 +134,28 @@ GET http://localhost:9000/api/inventarios/6286e9340820735e79453580 HTTP/1.1
 
 ###
 DELETE http://localhost:9000/api/inventarios/6284493b35945e181822eefc HTTP/1.1
+
+###
+PUT http://localhost:9000/api/inventarios/62a2c3b6efe1a22084ae80bc HTTP/1.1
+Content-Type: application/json
+
+{
+    "serial": "315478",
+    "model": "PLIJUH",
+    "descripcion": "Pantalla 65 Pulgadas",
+    "foto": "https://http2.mlstatic.com/D_NQ_NP_970038-MCO47494058504_092021-O.webp",
+    "precio": 2050000,
+    "fehcaCompra": "2021-12-01 00:00:00",
+    "usuario":{
+        "_id":"62a2acc4efe1a22084ae809e"
+    },
+    "marca":{
+        "_id": "629ff0fab79d840f843d5339"
+    },
+    "tipo":{
+        "_id": "6284491135945e181822eef8"
+    },
+    "estado":{
+        "_id": "6281cad7d0eff6337e2a12dd"
+    }
+}

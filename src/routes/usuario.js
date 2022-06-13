@@ -1,12 +1,23 @@
 const express = require("express");
 const userSchema = require("../models/usuarioModel");
+const { validationResult, check, body } = require('express-validator');
 
 const router = express.Router();
 
 const path = '/users';
 
 //Create user
-router.post(`${path}/`, async(req, res) => {
+router.post(`${path}/`, [
+    check('nombre', 'nombre es requerido').not().isEmpty(),
+    check('estado', 'estado es requerido').isIn(['Activo', 'Inactivo']),
+    check('email', 'email es requerido').not().isEmpty(),
+], async(req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
+    req.body.fecha_creacion = new Date();
+    req.body.fecha_actualizacion = new Date();
     const usuario = userSchema(req.body);
     await usuario
         .save()
@@ -38,6 +49,7 @@ router.get(`${path}/:id`, async(req, res) => {
 router.put(`${path}/:id`, async(req, res) => {
     const { id } = req.params;
     const { nombre, email, estado } = req.body;
+    req.body.fecha_actualizacion = new Date();
     await userSchema
         .updateOne({ _id: id }, { $set: { nombre, email, estado } })
         .then((data) => res.json(data))

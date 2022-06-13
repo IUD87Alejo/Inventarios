@@ -7,7 +7,7 @@ const InventarioSchema = mongoose.Schema({
         required: true,
         unique: true
     },
-    model: {
+    modelo: {
         type: String,
         required: true
     },
@@ -23,8 +23,8 @@ const InventarioSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    fehcaCompra: {
-        type: Date,
+    fechaCompra: {
+        type: String,
         required: true
     },
     usuario: {
